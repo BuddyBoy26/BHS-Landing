@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&display=swap');
+
+@font-face {
+    font-family: montserrat;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, p, a, div {
+    font-weight: 300;
+}
+
+#reduced-height {
+    content: "";
+    display: block;
+    margin: -35px;
+}
+
+#bhavya, #haulage-services {
+    font-family: arial;
+    -webkit-text-stroke-color: #f9f5f1;
+    -webkit-text-stroke-width: 2px;
+}
+
+.home-page {
+    background-color: #f9f5f1;
+    color: #191310;
+    font-family: montserrat;
+}
+
+.hero-sections {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 20px;
+    background-image: url(/images/home-bg.png);
+    background-size: cover;
+    background-attachment: fixed;
+    box-shadow: 0px 1px 3px gray;
+}
+
+.company-name-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 350px;
+}
+
+.company-text {
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-text h1, .company-text p {
+    padding-left: 30px;
+    text-align: left;
+    width: 75%;
+    color: #f9f5f1;
+}
+
+.company-text h1 {
+    width: 100%;
+    font-size: 42px;
+    padding-bottom: 40px;
+    text-align: left;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #f9f5f1;
+}
+
+.company-text p {
+    font-size: 25px;
+}
+
+.company-video {
+    height: 100vh;
+    width: 90vh;
+    background-color: rgba(255, 255, 255, 0.301);
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.company-name-section video {
+    margin: 0px auto;
+    padding-top: 50px;
+    height: 50vh;
+    width: 120vh;
+    border-radius: 10px;
+}
+
+.button {
+    margin: 60px 30px;
+}
+
+.button a {
+    padding: 20px 30px;
+    background-color: #ff9321;
+    color: inherit;
+    transition: background-color 1s, color 1s;
+    font-size: 25px;
+    border-radius: 10px;
+}
+
+.button a:hover {
+    background-color: #191310;
+    color: #ece9e7;
+}
+
+@media screen and (max-width: 620px) {
+    .company-text h1 {
+        font-size: 35px !important;
+        padding-bottom: 10px;
+    }
+
+    #bhavya {
+        font-size: 60px !important;
+    }
+
+    #reduced-height {
+        margin: -25px;
+    }
+
+    #haulage-services {
+        font-size: 25px !important;
+        -webkit-text-stroke-width: 0.5px;
+    }
+
+    .hero-sections {
+        padding-left: 0px;
+    }
+
+    .company-text {
+        margin: 0px;
+    }
+
+    .company-video {
+        height: 55vh;
+        width: 55vh;
+        background-color: transparent;
+    }
+
+    .button a {
+        padding: 10px 15px;
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .company-name-section {
+        height: 140vh;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .hero-sections {
+        padding-top: 64px;
+        height: 140vh;
+        justify-content: space-between;
+        padding-left: 0px;
+        padding-top: 55px;
+    }
+
+    .company-text {
+        margin: 0px;
+    }
+
+    .company-video {
+        height: 50vh;
+        width: 100vw;
+    }
+
+    .company-video video {
+        padding: 0px;
+    }
+}
+
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (   min--moz-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (   -o-min-device-pixel-ratio: 2/1) and (min-device-width: 1025px),
+only screen and (        min-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (           min-resolution: 192dpi) and (min-device-width: 1025px),
+only screen and (            min-resolution: 2dppx) and (min-device-width: 1025px) {
+
+    .hero-sections{
+        height: 100vh;
+    }
+
+    #bhavya {
+        font-size: 110px !important;
+    }
+
+    #reduced-height {
+        margin: -20px;
+    }
+
+    .company-name-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .company-text {
+        margin-right: 10px;
+    }
+
+    .company-video {
+        flex-direction: column;
+        height: 100vh;
+        width: 48vw;
+    }
+
+    .company-video video {
+        width: 45vw;
+    }
+}

@@ -1,0 +1,172 @@
+:root {
+  --primary-color: #ff9321;
+  --text-color: #4d2600;
+}
+
+body {
+  background-color: #ffffff;
+  color: #4d2600;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: auto !important;
+}
+
+.log-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  margin-top: 40px; /* Adjusted to work with HeroSection */
+}
+
+/* Removed old hero section related CSS: .content-achi, .intro-achi, .heading-achi, etc. */
+
+/* Section Styling */
+.achievements-section,
+.certificates-section,
+.podcasts-section,
+.instagram-section { /* Added instagram-section */
+  margin-bottom: 60px;
+}
+
+.achievements-section h2,
+.certificates-section h2,
+.podcasts-section h2,
+.instagram-section h2 { /* Changed h2 to h3 */
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.achievements-section h2::after,
+.certificates-section h2::after,
+.podcasts-section h2::after,
+.instagram-section h2::after { /* Changed h2::after to h3::after */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color);
+}
+
+.log-grid-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.podcast-container,
+.instagram-container { /* Added instagram-container */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Custom styling for the achievements hero section */
+.achievements-hero span {
+  font-size: 0.9rem !important; /* Smaller intro text */
+  letter-spacing: 1px;
+}
+
+.achievements-hero h1 {
+  font-size: 2.2rem !important; /* Adjusted heading size */
+}
+
+.achievements-hero p {
+  font-size: 0.95rem !important; /* Slightly smaller paragraph */
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .log-container {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .log-container {
+    margin-top: 20px;
+    padding: 10px;
+  }
+  
+  .achievements-section h2,
+  .certificates-section h2,
+  .podcasts-section h2,
+  .instagram-section h2 { /* Changed h2 to h3 */
+    font-size: 1.7rem;
+  }
+  
+  .log-grid-container {
+    gap: 15px;
+  }
+
+  .achievements-hero span {
+    font-size: 0.8rem !important;
+  }
+  
+  .achievements-hero h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .achievements-hero p {
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .log-container {
+    padding: 10px 5px;
+  }
+  
+  .achievements-section h2,
+  .certificates-section h2,
+  .podcasts-section h2,
+  .instagram-section h2 { /* Changed h2 to h3 */
+    font-size: 1.5rem;
+  }
+  
+  .achievements-section,
+  .certificates-section,
+  .podcasts-section,
+  .instagram-section { /* Added instagram-section */
+    margin-bottom: 40px;
+  }
+}
+.achievements-section h3,
+.certificates-section h3,
+.podcasts-section h3,
+.instagram-section h3 { /* Changed h2 to h3 */
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 4rem;
+  color: var(--primary-color);
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative; 
+}
+
+.achievements-section h3::after,
+.certificates-section h3::after,
+.podcasts-section h3::after,
+.instagram-section h3::after { /* Changed h2::after to h3::after */
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--primary-color);
+}

@@ -1,0 +1,394 @@
+.new1{
+  width: 100%;
+}
+.md-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f8f8f8, #ffffff);
+    color: #333;
+    padding-bottom: 0;
+    padding: 50px 8%; /* Reduced from 112px 10% */
+    border-radius: 17px; /* Increased from 12px */
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.1); /* Increased shadow */
+    width: 95%; /* Reduced from 85% */
+
+    min-height: 30vh; /* Reduced from 50vh */
+    text-align: center;
+    margin: 60px auto; /* Reduced from 112px */
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+    will-change: transform, box-shadow; /* Performance hint */
+    position: relative;
+    overflow: hidden;
+}
+
+.md-container::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(248,248,248,0.4) 50%, rgba(240,240,240,0) 100%);
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 1.5s cubic-bezier(0.33, 1, 0.68, 1), 
+                opacity 1s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.md-container:hover::before {
+    opacity: 0.8;
+    transform: scale(1);
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 0.7; /* Reduced opacity change for smoother pulse */
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+  
+.md-container:hover{
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); /* Increased shadow */
+    transform: translateY(-5px) scale(1.003); /* Added lift effect with reduced scale */
+}
+
+.md-content {
+    max-width: 100%; /* Increased from 80% */
+    position: relative;
+    z-index: 2;
+}
+  
+.md-title {
+    font-size: 2.8vw; /* Increased from 4vw */
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 25px; /* Increased from 30px */
+    text-transform: uppercase;
+    letter-spacing: 2.8px; /* Increased from 2px */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0px 0px 8px rgba(255, 255, 255, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+.md-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ffb870, transparent);
+    transition: width 0.5s ease;
+}
+
+.md-container:hover .md-title::after {
+    width: 70%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+}
+  
+.md-text {
+    font-size: 16px; /* Increased from 18px */
+    line-height: 1.6;
+    color: #666;  
+    font-weight: 400;
+    margin-bottom: 25px; /* Increased from 30px */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05), 0px 0px 5px rgba(255, 255, 255, 0.3);
+}
+  
+.md-signature {
+    font-size: 22px; /* Increased from 20px */
+    font-weight: 600;
+    color: #444;
+    text-align: right;
+    margin-top: 10px; /* Increased from 10px */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+    float: right;
+    padding-bottom: 0px;
+}
+
+.md-signature::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffb870 30%, #ffb870 70%, transparent);
+}
+
+/* Animated gradient text */
+.animated-gradient-text {
+    background: linear-gradient(90deg, #ffffff, #ffb870, #ffffff);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: textShimmer 5s linear infinite;
+    display: inline-block;
+}
+
+@keyframes textShimmer {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+/* Desktop improvements */
+@media (min-width: 1200px) {
+    .md-container {
+      width: 70%; /* Reduced from 85% */
+      max-width: 1400px; /* Reduced from 1960px */
+      padding: 60px 8%; /* Reduced from 100px 10% */
+    }
+
+    .md-title {
+      font-size: 3rem; /* Increased from 3.2rem */
+      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .md-text {
+      font-size: 1.2rem; /* Increased from 1.4rem */
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.05), 0px 0px 7px rgba(255, 255, 255, 0.3);
+    }
+}
+  
+/* 🔹 Responsive Fixes */
+@media (max-width: 992px) {
+    .md-container {
+      width: 80%; /* Reduced from 90% */
+    }
+    
+    .md-title {
+      font-size: 5vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .md-container {
+      padding: 40px 5%;
+      width: 90%;
+    }
+  
+    .md-content {
+      max-width: 95%;
+    }
+  
+    .md-title {
+      font-size: 5vw;
+    }
+  
+    .md-text {
+      font-size: 16px;
+    }
+  
+    .md-signature {
+      font-size: 18px;
+    }
+}
+  
+@media (max-width: 480px) {
+    .md-container {
+      width: 95%;
+      padding: 30px 4%;
+      margin: 40px auto;
+    }
+    
+    .md-title {
+      font-size: 6vw;
+    }
+    
+    .md-text {
+      font-size: 16px;
+    }
+    
+    .md-signature {
+      font-size: 18px;
+    }
+}
+  
+/* Timeline section styling */
+.timeline-section {
+    margin: 0 112px auto; /* Increased from 80px */
+    color: #222;
+    padding: 0 21px; /* Increased from 15px */
+    max-width: 1680px; /* Increased from 1200px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    ;
+}
+  
+.timeline-section h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 70px; /* Increased from 50px */
+    font-weight: 700;
+    text-decoration: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(255, 255, 255, 0.6);
+}
+  
+.timeline-container {
+    max-width: 1120px; /* Increased from 800px */
+    margin: 0 auto;
+    padding-bottom: 0;
+    padding: 28px; /* Increased from 20px */
+    position: relative;
+    bottom: 20px;
+}
+  
+.timeline-container::before {
+    content: "";
+    position: absolute;
+    left: 28px; /* Increased from 20px */
+    top: 0;
+    width: 6px; /* Increased from 4px */
+    height: 100%;
+    background: #d1d5db;
+}
+  
+.timeline-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 56px; /* Increased from 40px */
+    position: relative;
+}
+  
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+  
+.timeline-icon {
+    width: 70px; /* Increased from 50px */
+    height: 70px; /* Increased from 50px */
+    background-color: white;
+    color: #fff;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.1rem; /* Increased from 1.5rem */
+    position: absolute;
+    left: 0;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1); /* Increased shadow */
+}
+
+  
+.timeline-content {
+    background: #fdfcfa;
+    padding-bottom: 0;
+    padding: 21px; /* Increased from 15px */
+    border-radius: 11px; /* Increased from 8px */
+    box-shadow: 0px 6px 21px rgba(0, 0, 0, 0.1); /* Increased shadow */
+    margin-left: 70px; /* Increased from 50px */
+    width: calc(100% - 84px); /* Increased from 60px */
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline-content::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #ffb870, transparent);
+}
+
+  
+.timeline-content h3 {
+    font-size: 1.4rem; /* Increased from 1rem */
+    color: #374151;
+    margin-bottom: 7px; /* Increased from 5px */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+  
+.timeline-content h4 {
+    font-size: 1.75rem; /* Increased from 1.25rem */
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 7px; /* Increased from 5px */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+}
+  
+.timeline-content p {
+    font-size: 1.26rem; /* Increased from 0.9rem */
+    color: #4b5563;
+    line-height: 1.6;
+    text-shadow: 0.5px 0.5px 1px rgba(0, 0, 0, 0.05);
+}
+  
+.timeline-container h1{
+    margin-bottom: 11px; /* Increased from 8px */
+}
+  
+.timeline-section h1 {
+    font-size: 56px; /* Increased from 40px */
+}
+  
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .timeline-section {
+      margin: 60px 20px 0px 20px;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    .timeline-section h1 {
+      font-size: 32px;
+      margin: 30px 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 8px rgba(255, 255, 255, 0.6);
+    }
+    
+    .timeline-content h4 {
+      font-size: 1.1rem;
+    }
+    
+    .timeline-content p {
+      font-size: 0.85rem;
+    }
+}
+  
+@media screen and (max-width: 480px) {
+    .timeline-section h1 {
+      font-size: 28px;
+      margin: 20px 0;
+    }
+    
+    .timeline-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+    
+    .timeline-content {
+      margin-left: 40px;
+      padding: 12px;
+    }
+    
+    .timeline-content h3 {
+      font-size: 0.8rem;
+    }
+    
+    .timeline-content h4 {
+      font-size: 1rem;
+    }
+}

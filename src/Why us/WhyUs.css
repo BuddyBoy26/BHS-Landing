@@ -1,0 +1,230 @@
+/* Remove the glitchy animation keyframes */
+/* @keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} */
+
+.why-us-container {
+  /* Optimize fixed background for performance */
+  background-image: url('/images/why_us_hero.jpg');
+  background-attachment: fixed; /* Change from fixed to scroll for better performance */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 50px 5%; /* Add padding to match services page */
+  overflow: hidden;
+  /* Add hardware acceleration */
+}
+
+.why-us-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.35); /* Medium overlay */
+  z-index: 1;
+}
+
+.why-us-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+.feature-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  margin: 30px 0;
+  /* Add hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Remove the glitchy transition properties */
+  /* opacity: 0;
+  transform: translateY(20px);
+  will-change: opacity, transform;
+  transition: opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1), 
+              transform 0.6s cubic-bezier(0.33, 1, 0.68, 1); */
+}
+
+/* Remove this class since we're using Framer Motion now */
+/* .feature-box.visible {
+  opacity: 1;
+  transform: translateY(0);
+} */
+
+/* Alternating Background Colors */
+.orange {
+  background-color: #ff9321;
+  color: white;
+}
+
+.light-orange {
+  background-color: #4d2600;
+  color: #ffe5b4;
+}
+
+/* Ensure text color swaps properly */
+.orange h2,
+.orange p {
+  color: white;
+}
+
+.light-orange h2,
+.light-orange p {
+  color: #ffe5b4;
+}
+
+/* Reverse Layout for Alternating Sections */
+.reverse-layout {
+  flex-direction: row-reverse;
+}
+
+.text-content {
+  font-family: 'Space Grotesk', sans-serif;
+
+  flex: 1;
+  text-align: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-content h2 {
+  font-family: "PT Sans", sans-serif;
+font-weight: 600;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.text-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.image-content img {
+  width: 100%;
+  max-width: 500px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  /* Don't use will-change by default - only during hover */
+  transition: transform 0.3s ease; /* Simplified transition */
+  /* Add hardware acceleration */
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.image-content img:hover {
+  transform: scale(1.02) translateZ(0); /* Smaller scale and maintain hardware acceleration */
+  will-change: transform; /* Only add will-change during hover */
+}
+
+/* Add margin to create space before the footer */
+.feature-box:last-of-type {
+  margin-bottom: 70px;
+}
+
+@media (max-width: 768px) {
+  .feature-box {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .text-content {
+    text-align: center;
+    order: 1; /* Text below image on mobile */
+  }
+  
+  .text-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .text-content p {
+    font-size: 1.1rem;
+  }
+  
+  .image-content {
+    order: 0; /* Image above text on mobile */
+    width: 100%;
+    padding: 0 0 20px 0;
+  }
+
+  .image-content img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+  
+  /* Ensure reverse layout works properly on mobile */
+  .reverse-layout .text-content {
+    order: 1;
+  }
+  
+  .reverse-layout .image-content {
+    order: 0;
+  }
+
+  /* Ensure hardware acceleration on mobile too */
+  .feature-box, 
+  .image-content img {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-us-container {
+    padding: 30px 15px;
+  }
+  
+  .feature-box {
+    padding: 25px 15px;
+    margin: 20px 0;
+  }
+  
+  .text-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .text-content p {
+    font-size: 1rem;
+  }
+
+  .image-content img {
+    width: 100%;
+    max-width: 300px;
+  }
+}

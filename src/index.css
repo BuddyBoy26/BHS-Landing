@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles below */
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  margin: 0;
+  color: black;
+}
+
+/* Main content transition styles */
+.main-content {
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+
+.main-content.show {
+  opacity: 1;
+}
+
+.main-content.visible {
+  opacity: 1;
+}
+
+/* App container and content transition styles */
+.app {
+  position: relative;
+  min-height: 100vh;
+}
+
+.content-container {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.content-container.visible {
+  opacity: 1;
+}
+
+.content-container.hidden {
+  display: none;
+}
+
+/* Animation reset helper classes */
+.animated-element {
+  opacity: 0;
+}
+
+.animated-element.animated {
+  animation: fadeInUp 0.8s forwards;
+  opacity: 1;
+}
+
+/* Example animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered animations helper */
+.staggered-item:nth-child(1) { animation-delay: 0.1s; }
+.staggered-item:nth-child(2) { animation-delay: 0.2s; }
+.staggered-item:nth-child(3) { animation-delay: 0.3s; }
+.staggered-item:nth-child(4) { animation-delay: 0.4s; }
+.staggered-item:nth-child(5) { animation-delay: 0.5s; }
+/* Add more as needed */
+
+/* Add this class when body is ready for animations */
+body.content-loaded .animate-on-load {
+  animation-play-state: running !important;
+}
+
+/* Ensure animations are paused until content is ready */
+.animate-on-load {
+  animation-play-state: paused;
+}
+

@@ -1,0 +1,142 @@
+.vision-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(240, 240, 240, 0.8));
+    color: black;
+    padding: 84px 8%; /* Increased from 60px */
+    width: 85vw; /* Increased from 85vw */
+    min-height: 45vh; /* Increased from 60vh */
+    text-align: left;
+    margin: 56px auto; /* Increased from 40px */
+    border-radius: 28px; /* Increased from 20px */
+    box-shadow: 0 11px 28px rgba(0, 0, 0, 0.1); /* Increased shadow */
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+    will-change: transform, box-shadow; /* Performance hint */
+    background-image: url("/images/6 Key Steps to Influencing Effective Knowledge Transfer in Your Business.jpeg");
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+
+  .vision-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 28px; /* Increased from 20px */
+    z-index: 1;
+  }
+  
+  .vision-container:hover{
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.15); /* Increased shadow */
+    transform: translateY(-5px) scale(1.003); /* Added lift effect with reduced scale */
+  }
+  
+  /* Title Styling */
+  .vision-title {
+    font-size: 7vw; /* Increased from 6vw */
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 2.8px; /* Increased from 2px */
+    width: 30%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-right: 5%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2), 0px 0px 10px rgba(255, 255, 255, 0.5);
+  }
+  
+  /* Paragraph Styling */
+  .vision-text {
+    font-size: 28px; /* Increased from 28px */
+    line-height: 1.8;
+    color: #333;
+    font-weight: 600;
+    width: 60%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 0px 8px rgba(255, 255, 255, 0.4);
+  }
+
+  /* Desktop improvements */
+  @media (min-width: 1200px) {
+    .vision-container {
+      width: 85vw; /* Increased from 75vw */
+      max-width: 1800px; /* Increased from 1400px */
+      padding: 112px 8%; /* Increased from 80px */
+    }
+
+    .vision-title {
+      font-size: 4rem; /* Increased from 3.2rem */
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2), 0px 0px 12px rgba(255, 255, 255, 0.5);
+    }
+
+    .vision-text {
+      font-size: 1.7rem; /* Increased from 1.4rem */
+      text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1), 0px 0px 10px rgba(255, 255, 255, 0.4);
+    }
+  }
+  
+  /* 🔹 Responsive Fixes */
+  @media (max-width: 992px) {
+    .vision-container {
+      width: 90vw;
+    }
+    
+    .vision-title {
+      font-size: 3.5vw;
+    }
+    
+    .vision-text {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .vision-container {
+      flex-direction: column;
+      text-align: center;
+      padding: 40px 5%;
+      width: 90vw;
+      margin: 20px auto;
+    }
+  
+    .vision-title {
+      font-size: 5vw;
+      width: 100%;
+      margin-bottom: 20px;
+      text-align: center;
+      margin-right: 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2), 0px 0px 8px rgba(255, 255, 255, 0.5);
+    }
+  
+    .vision-text {
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 0px 0px 6px rgba(255, 255, 255, 0.4);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .vision-container {
+      width: 95vw;
+      padding: 30px 4%;
+    }
+
+    .vision-title {
+      font-size: 6vw;
+    }
+
+    .vision-text {
+      font-size: 16px;
+    }
+  }

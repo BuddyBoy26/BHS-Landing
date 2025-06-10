@@ -1,0 +1,75 @@
+a{
+  /* font-family: 'Space Grotesk', sans-serif; */
+  font-family: "PT Sans", sans-serif;
+  font-weight: 500;
+}
+
+.scrolleff{
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.navbar-footer{
+  /* background: blue; */
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
+
+.contact-info-mobile{
+  text-align: center;
+
+}
+
+.stay-connected-container-mobile
+{
+  text-align: center;
+}
+
+.social-icon{
+  margin: 10px;
+}
+
+.legal-links{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.copyright{
+  color: white;
+}
+
+/* .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    z-index: 100;
+  }
+  
+  .navbar-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .navbar-list li {
+    font-size: 1.2rem;
+  }
+  
+  .navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-list a:hover {
+    color: #f39c12;
+  }
+   */

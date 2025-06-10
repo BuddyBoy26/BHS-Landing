@@ -1,0 +1,258 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css";
+
+/* Global Reset */
+* {
+  
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Color Theme */
+:root {
+  --primary-color: #FF9E35; /* Brighter orange */
+  --secondary-color: #000000; /* Kept black for contrast */
+  --background-color: #ffffff; /* Kept white */
+  --text-color: #000000; /* Kept black */
+  --muted-text-color: rgba(0, 0, 0, 0.75); /* Darker muted black for better readability */
+  --hover-color: #FFB757; /* Brighter orange for hover states */
+  --glow-color: rgba(255, 158, 53, 0.4); /* Orange glow for effects */
+  --cream-color: #F5F5DC; /* Cream color for headings */
+  --light-gray-color: #A9A9A9; /* Light gray for descriptions (darker for service boxes) */
+}
+
+/* Services Page */
+.services-page {
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-color);
+  text-align: center;
+  color: var(--text-color);
+  overflow: hidden; /* Remove vertical scrolling */
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(60px) scale(0.95); /* Reduced distance and scale for smoother animation */
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1); /* Final position */
+    opacity: 1;
+  }
+}
+
+.services-grid {
+  background: url("/images/our_services_hero.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Standard 3 boxes per row */
+  gap: 30px; /* Space between boxes */
+  padding: 10% 5% 10% 5%; /* Padding around the grid */
+  width: 100%;
+  justify-content: center;
+  align-items: start; /* Align items to the top */
+  position: relative; /* Added for overlay positioning */
+}
+
+/* Add overlay for services grid background */
+.services-grid::before {
+  content: '';
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.35); 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1; /* Visible by default */
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+}
+
+/* Make sure service boxes are above the overlay */
+.service-box {
+  font-family: 'Space Grotesk', sans-serif;
+  position: relative;
+  z-index: 1; /* Ensure boxes appear above the overlay */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3), 0 0 20px var(--glow-color); /* Added orange glow */
+  backdrop-filter: blur(80px);
+  -webkit-backdrop-filter: blur(8.4px);
+  border: 1px solid rgba(255, 255, 255, 1);
+  border-radius: 16px; /* Rounded corners */
+  padding: 40px; /* Increased padding for better spacing */
+  text-align: center;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Enhanced shadow for better depth */
+  height: 500px; /* Increased height for larger content */
+  overflow: hidden; /* Prevent content overflow */
+  transition: all 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smoother easing curve */
+  font-size: 22px; /* Increased font size */
+  position: relative;
+  margin: 20px; /* Removed unnecessary margins */
+  opacity: 0; /* Initially hidden */
+  transform: translateY(60px) scale(0.95); /* Reduced values for smoother animation */
+}
+
+.service-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.733);  /* More visible orange overlay */
+  z-index: -1; /* Place behind content */
+  transform: scale(0.98); /* Less extreme starting scale */
+  transition: transform 0.6s cubic-bezier(0.33, 1, 0.68, 1), 
+              opacity 0.6s cubic-bezier(0.33, 1, 0.68, 1); /* Smoother easing */
+  opacity: 0;
+  border-radius: 16px;
+}
+
+.service-box:hover::before {
+  transform: scale(1.1); /* Expand overlay */
+  opacity: 1; /* Make overlay visible */
+  
+}
+
+.service-box.visible {
+  animation: slideUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards; /* Smoother animation */
+}
+
+.service-box:not(.visible) {
+  /* Remove hidden state */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-box:hover {
+  transform: scale(1.03); /* Reduced scale for smoother hover */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 30px var(--glow-color);
+  transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+.service-icon {
+  font-size: 72px; /* Increased icon size */
+  margin-bottom: 25px; /* Adjusted spacing */
+  color: var(--primary-color);
+  text-shadow: 0 0 10px var(--glow-color); /* Add glow to icons */
+  transition: transform 0.8s ease;
+}
+
+.service-box h2 {
+  font-family: "PT Sans", sans-serif;
+  font-weight: 600;
+  font-size: 30px; /* Increased heading size */
+  color: #ffffff; /* Darker gray for headings in service boxes */
+  margin-bottom: 20px; /* Adjusted spacing */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for better contrast */
+  transition: color 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), text-shadow 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.service-box p {
+  font-size: 20px; /* Increased paragraph size */
+  color: #ffffff; /* Medium gray for descriptions in service boxes */
+  line-height: 1.8; /* Improved readability */
+  transition: color 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000), text-shadow 0.8s cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+.service-box:hover h2 {
+  color: #000000; /* Darker on hover */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15), 0 0 2px var(--glow-color);
+}
+
+.service-box:hover p {
+  color: #000000; /* Darker on hover */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.nav-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 6.8px 13.6px; /* Reduced to 0.8 times from 8.5px 17px */
+  font-size: 1.6rem; /* Reduced to 0.8 times from 2rem */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #e07b1a;
+}
+
+@media (max-width: 1024px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    gap: 20px; /* Adjusted gap for medium screens */
+    padding: 3.4% 3.4%; /* Reduced to 0.8 times from 4.25% */
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 28.8px; /* Reduced to 0.8 times from 36px */
+  }
+
+  .cursor {
+    font-size: 28.8px; /* Reduced to 0.8 times from 36px */
+  }
+
+  .paragraph {
+    font-size: 16px; /* Reduced to 0.8 times from 20px */
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    gap: 20px; /* Adjusted gap for smaller screens */
+    padding: 3.4% 3.4%; /* Reduced to 0.8 times from 4.25% */
+  }
+
+  .service-box {
+    padding: 15px; /* Adjusted padding for smaller screens */
+    height: auto; /* Adjust height for smaller screens */
+  }
+
+  .service-box h2 {
+    font-size: 24px; /* Reduced to 0.8 times from 30px */
+  }
+
+  .service-box p {
+    font-size: 16px; /* Reduced to 0.8 times from 20px */
+  }
+}
+
+/* Enhanced highlight effect for better visibility */
+.highlight-service {
+  animation: highlightBox 1s ease;
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.7), 0 0 30px var(--glow-color); /* Added orange glow */
+  position: relative;
+  z-index: 10; /* Ensure highlighted element is above others */
+}
+
+@keyframes highlightBox {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(255, 147, 33, 0);
+  }
+  50% {
+    transform: scale(1.1); /* Reduced scale for smoother highlight */
+    box-shadow: 0 0 25px rgba(80, 80, 80, 0.7), 0 0 30px var(--glow-color);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(199, 199, 199, 0.5), 0 0 20px var(--glow-color);
+  }
+}

@@ -1,0 +1,418 @@
+:root {
+  --primary-color: #FF9E35; /* Brighter orange */
+  --secondary-color: #FFFFFF; /* Kept white */
+  --background-color: #121212; /* Kept dark gray */
+  --text-color: #FFFFFF; /* Kept white */
+  --muted-text-color: rgba(255, 255, 255, 0.8); /* Brighter muted white */
+  --hover-color: #FFB757; /* Even brighter orange for hover states */
+  --glow-color: rgba(255, 158, 53, 0.3); /* Orange glow for effects */
+  --cream-color: #F5F5DC; /* Added cream color for headings */
+  --light-gray-color: #E0E0E0; /* Added light gray for descriptions */
+}
+
+.hero-section0 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Removed hardcoded background URL - will be applied dynamically */
+  background-color: var(--background-color); /* Fallback if no image provided */
+  text-align: center;
+  color: var(--text-color);
+  padding: 0 5%;
+  overflow: hidden;
+  position: relative; /* Added to ensure proper positioning of background */
+  z-index: 1; /* Ensure content appears above background */
+  transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+}
+
+/* Optional overlay for better text readability over images */
+.hero-section0::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 1; /* Visible by default */
+  background-color: rgba(0, 0, 0, 0.35); /* Add permanent darkening - was previously empty */
+  transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+}
+
+.content0 {
+  height: 100svh; /* Changed to small viewport height for better mobile support */
+  width: 100%;
+  letter-spacing: 0.1rem;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Added to center horizontally */
+  gap: 1.5svh; /* Increased gap to prevent overlap */
+  padding: 2svh 0; /* Add vertical padding */
+}
+
+.intro0 {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Added to center vertically */
+  flex: 0; /* Changed from 1 to remove excess spacing */
+  font-size: 9svw; /* Reduced by 25% from 12svw */
+  color: var(--hover-color);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+  margin-bottom: 1svh; /* Increased bottom margin */
+  width: 100%; /* Ensure it takes full width */
+  overflow: visible; /* Changed from hidden to visible */
+  /* Remove any properties that might be causing disappearance */
+  min-height: auto; /* Changed from fixed height to auto */
+  max-height: 15svh; /* Added maximum height */
+  z-index: 2; /* Ensure it appears above other elements */
+  will-change: transform, text-shadow; /* Performance optimization */
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+  text-shadow: 0 0 8px var(--glow-color); /* Add subtle glow */
+}
+
+/* Add small intro class */
+.intro0.small-intro {
+  font-size: 6svw; /* Smaller font size for intro */
+}
+
+.intro-container.small-intro {
+  font-size: 6svw; /* Apply the same size to the container */
+}
+
+/* Add a new class for the intro container to manage consistent coloring */
+.intro-container {
+font-family: 'Space Grotesk', sans-serif;
+font-weight: 600;
+  color: inherit; /* Inherit color from parent (intro0) */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.intro-container span {
+  color: inherit; /* Ensure all spans inherit the same color */
+}
+
+.intro0:hover {
+  color: var(--hover-color); /* Brighter orange on hover */
+  transform: scale(1.01); /* Subtle scale effect */
+  text-shadow: 0 0 15px var(--glow-color); /* Enhanced glow on hover */
+}
+
+.intro0:hover .intro-container span {
+  color: inherit; /* Ensure all spans maintain the same hover color */
+}
+
+.heading0 {
+  font-size: 3.375svw; /* Reduced by 25% from 4.5svw */
+  font-weight: bold;
+  margin-bottom: 1svh; /* Increased bottom margin */
+  margin-top: 1svh; /* Added top margin */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible; /* Changed from hidden to visible */
+  white-space: normal; /* Allow wrapping if needed */
+  max-width: 95vw; /* Increased from 100vw */
+  text-align: center; /* Ensure text is centered */
+  width: 100%; /* Ensure it takes full width */
+  min-height: auto; /* Changed from fixed height to auto */
+  max-height: 15svh; /* Added maximum height */
+  will-change:  color, text-shadow; /* Performance optimization */
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+  color: var(--cream-color); /* Changed to cream color */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /* Enhanced shadow for better contrast with cream */
+}
+
+.heading0:hover {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3), 0 0 12px var(--glow-color); /* Combine shadow with glow */
+  color: #FFFFFF; /* Change to white on hover for contrast */
+}
+
+.paragraph0 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 1.35svw; /* Reduced by 25% from 1.8svw */
+  width: 100%;
+  max-width: 60svw; /* Reduced by 25% from 80svw */
+  margin: 0 auto; /* Changed from 'auto' to '0 auto' for better centering */
+  line-height: 1.5; /* Simplified line height */
+  word-spacing: 0.2em; /* Relative word spacing */
+  color: white; /* Changed to light gray for descriptions */
+  overflow: hidden; /* Ensure no overflow during animation */
+  text-align: center; /* Ensure text is centered */
+  will-change: opacity, transform; /* Performance optimization */
+  transition: all 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+}
+
+.paragraph0:hover {
+  opacity: 1; /* Full opacity on hover for better readability */
+  color: var(--cream-color); /* Changed hover color to cream for consistency */
+}
+
+.typing-container0 {
+  font-family: 'PT Sans', sans-serif;
+  display: flex;
+  font-size: 2.25svw; /* Reduced by 25% from 3svw */
+  position: relative;
+  align-items: center;
+  justify-content: center; /* Center text */
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--cream-color); /* Changed to cream for consistency */
+  margin: 0 auto; /* Added for better centering */
+  width: 100%; /* Ensure full width for proper centering */
+  text-align: center; /* Additional centering */
+  /* transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); Smoother transition with easing */
+  text-shadow: 0 0 3px rgba(255, 255, 255, 0.2); /* Subtle glow for better visibility */
+}
+
+/* .typing-container0:hover {
+  letter-spacing: 0.02em; /* Reduced letter spacing change for subtlety */
+/*}*/
+
+.cursor {
+  font-weight: bold;
+  font-size: 2.25svw; /* Reduced by 25% from 3svw */
+  animation: blink 1s infinite;
+  margin-left: 0.2em;
+  display: inline-block; /* Ensure proper display */
+  vertical-align: middle; /* Align with text */
+  position: relative; /* Enable positioning */
+  top: -0.05em; /* Slight adjustment for better alignment */
+  color: var(--primary-color); /* Make cursor match primary color */
+  opacity: 0.9; /* Slightly transparent */
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+    text-shadow: 0 0 8px var(--glow-color); /* Add glow at full opacity */
+  }
+  50% {
+    opacity: 0.4; /* Increased from 0.3 for smoother blink */
+    text-shadow: 0 0 0 transparent; /* Remove glow at low opacity */
+  }
+}
+
+/* Improved media queries for better responsiveness */
+@media (max-width: 768px) {
+  .intro0 {
+    font-size: 10svw; /* Further reduced from 11.25svw */
+    letter-spacing: 1px; /* Reduced letter spacing */
+    overflow: visible; /* Ensure visibility */
+    min-height: 10svh; /* Maintain minimum height */
+  }
+
+  .heading0 {
+    font-size: 4svw; /* Further reduced from 4.5svw */
+    white-space: normal; /* Allow text to wrap properly */
+    line-height: 1.3; /* Improve line spacing */
+  }
+
+  .paragraph0 {
+    font-size: 2.2svw; /* Slightly increased for better readability */
+    max-width: 85svw; /* Increased width for better text flow */
+    line-height: 1.4; /* Improved line height */
+  }
+  
+  .typing-container0 {
+    font-size: 3.5svw; /* Slightly reduced */
+    white-space: normal; /* Allow text to wrap properly */
+  }
+  
+  .cursor {
+    font-size: 3.5svw; /* Match typing container */
+  }
+
+  .intro0:hover, .heading0:hover, .paragraph0:hover, .typing-container0:hover {
+    transform: none; /* Disable transform effects on smaller screens */
+    letter-spacing: inherit; /* Disable letter spacing changes */
+  }
+  
+  .intro0:hover {
+    color: var(--primary-color); /* Keep original color on mobile */
+  }
+  
+  .intro0.small-intro {
+    font-size: 7svw; /* Adjusted for medium screens */
+  }
+  
+  .intro-container.small-intro {
+    font-size: 7svw;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro0 {
+    font-size: 10.5svw; /* Further reduced from 13.5svw */
+    letter-spacing: 0.5px; /* Reduced letter spacing even more */
+    margin-bottom: 1svh; /* Added more space below */
+    overflow: visible; /* Ensure visibility */
+    min-height: 10svh; /* Maintain minimum height */
+  }
+
+  .heading0 {
+    font-size: 5svw; /* Further reduced from 6svw */
+    white-space: normal; /* Allow text to wrap properly */
+    line-height: 1.4; /* Improve line spacing */
+    margin-bottom: 1svh; /* Added more space below */
+    padding: 0 2vw; /* Added horizontal padding */
+  }
+
+  .paragraph0 {
+    font-size: 3.5svw; /* Slightly increased from 3svw for readability */
+    max-width: 90svw; /* Increased from 71.25svw for better text flow */
+    line-height: 1.5; /* Improved line height */
+    padding: 0 2vw; /* Added horizontal padding */
+  }
+  
+  .typing-container0 {
+    font-size: 4.5svw; /* Further reduced from 5.25svw */
+    white-space: normal; /* Allow text to wrap properly */
+    line-height: 1.3; /* Added line height */
+    padding: 0 2vw; /* Added horizontal padding */
+  }
+  
+  .cursor {
+    font-size: 4.5svw; /* Match typing container */
+  }
+  
+  .intro0.small-intro {
+    font-size: 8svw; /* Adjusted for small screens */
+  }
+  
+  .intro-container.small-intro {
+    font-size: 8svw;
+  }
+}
+
+/* Add an extra breakpoint for very small screens */
+@media (max-width: 360px) {
+  .intro0 {
+    font-size: 9svw; /* Even smaller for tiny screens */
+    overflow: visible; /* Ensure visibility */
+    min-height: 8svh; /* Slightly smaller for very small screens */
+  }
+  
+  .heading0 {
+    font-size: 4.5svw; /* Smaller for tiny screens */
+  }
+  
+  .paragraph0 {
+    font-size: 3.2svw; /* Smaller for tiny screens */
+  }
+  
+  .typing-container0, .cursor {
+    font-size: 4svw; /* Smaller for tiny screens */
+  }
+}
+
+/* Add media query specifically for short screens (height-based) */
+@media (max-height: 600px) {
+  .content0 {
+    gap: 1svh; /* Reduced gap for shorter screens */
+    padding: 1svh 0; /* Reduced padding */
+  }
+  
+  .intro0 {
+    font-size: 7svw; /* Smaller font for shorter screens */
+    margin-bottom: 0.5svh; /* Reduced margin */
+    max-height: 10svh; /* Reduced maximum height */
+  }
+  
+  .heading0 {
+    font-size: 3svw; /* Smaller font for shorter screens */
+    margin-bottom: 0.5svh; /* Reduced margin */
+    margin-top: 0.5svh; /* Reduced margin */
+    max-height: 10svh; /* Reduced maximum height */
+  }
+  
+  .paragraph0 {
+    font-size: 1.2svw; /* Smaller font for shorter screens */
+    max-width: 80svw; /* Slightly wider */
+    margin: 0 auto;
+    line-height: 1.3; /* Tighter line height */
+    max-height: 25svh; /* Limit height */
+    overflow-y: auto; /* Allow scrolling if needed */
+  }
+}
+
+/* Even shorter screens */
+@media (max-height: 450px) {
+  .content0 {
+    justify-content: flex-start; /* Align to top instead of center */
+    padding-top: 2svh; /* Add some top padding */
+    gap: 0.5svh; /* Minimal gap */
+  }
+  
+  .intro0 {
+    font-size: 6svw; /* Even smaller font */
+    margin-bottom: 0.2svh; /* Minimal margin */
+    max-height: 8svh; /* Further reduced height */
+  }
+  
+  .heading0 {
+    font-size: 2.5svw; /* Even smaller font */
+    margin: 0.2svh 0; /* Minimal margins */
+    max-height: 8svh; /* Further reduced height */
+  }
+  
+  .paragraph0 {
+    font-size: 1svw; /* Even smaller font */
+    line-height: 1.2; /* Tighter line height */
+    max-height: 20svh; /* Further limit height */
+  }
+  
+  .typing-container0, .cursor {
+    font-size: 2svw; /* Smaller font */
+  }
+}
+
+/* Combined height and width media queries for better handling of different aspect ratios */
+@media (max-height: 600px) and (max-width: 768px) {
+  .intro0 {
+    font-size: 8svw;
+  }
+  
+  .heading0 {
+    font-size: 3.5svw;
+  }
+  
+  .paragraph0 {
+    font-size: 2svw;
+  }
+}
+
+@media (max-height: 450px) and (max-width: 768px) {
+  .intro0 {
+    font-size: 7svw;
+  }
+  
+  .heading0 {
+    font-size: 3svw;
+  }
+  
+  .paragraph0 {
+    font-size: 1.8svw;
+  }
+}
+
+@media (max-height: 450px) and (max-width: 480px) {
+  .intro0 {
+    font-size: 8svw;
+  }
+  
+  .heading0 {
+    font-size: 4svw;
+  }
+  
+  .paragraph0 {
+    font-size: 2.5svw;
+  }
+}

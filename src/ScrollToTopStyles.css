@@ -1,0 +1,36 @@
+/* Global styles to prevent animations on page load */
+.no-animation * {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Override Framer Motion animations when no-animation class is active */
+body.no-animation [data-framer-motion] {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transform: translateX(0) !important;
+  transform: translateZ(0) !important;
+}
+
+/* Override any smooth scrolling globally when no-animation is active */
+html.no-animation,
+body.no-animation {
+  scroll-behavior: auto !important;
+}
+
+/* Ensure any scroll-snap properties are disabled */
+body.no-animation * {
+  scroll-snap-type: none !important;
+}
+
+/* Override any potential scroll animations from libraries */
+body.no-animation [class*="animate"],
+body.no-animation [class*="motion"],
+body.no-animation [class*="transition"] {
+  animation: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}

@@ -1,0 +1,103 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=PT+Sans:wght@700&display=swap'); */
+
+.past-clients-section {
+    margin: 0px 20px;
+    padding: 40px 0;
+    height: 85vh;
+}
+
+.client-card-heading {
+    font-family: "PT Sans", sans-serif;
+    font-weight: 600;
+    font-size: 50px;
+    text-align: center;
+}
+
+.clients-card-container {
+    overflow-x: hidden;
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.client-card {
+    width: 250px;
+    height: 250px;
+    margin: 80px 5%;
+    flex-shrink: 0;
+    position: relative;
+    left: 100%;
+    animation: slide 40s linear infinite; /* Slowed down for smoother animation */
+    align-self: center;
+    background-color: rgb(168, 168, 168);
+    border-radius: 125px;
+}
+
+.client-card img {
+    height: 250px;
+    width: 100%;
+    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Added smooth transition */
+}
+
+.client-card img:hover {
+    transform: scale(1.05); /* Add subtle hover effect */
+}
+
+@keyframes slide {
+    from {
+        left: 0%;
+        transform: translateX(0);
+    }
+
+    to {
+        left: 0%;
+        transform: translateX(-652%);
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .past-clients-section {
+        margin: 0px 5px;
+        height: 60vh;
+    }
+
+    .client-card-heading {
+        font-size: 35px;
+    }
+
+    .clients-card-container {
+        height: 305px;
+    }
+
+    .client-card {
+        flex-shrink: 0;
+        height: 150px;
+        width: 150px;
+        align-self: center;
+        background-color: rgb(169, 169, 169);
+        border-radius: 75px;
+    }
+
+    .client-card img {
+        width: 125px;
+        height: 125px;
+        flex-shrink: 0;
+    }
+}
+
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (   min--moz-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (   -o-min-device-pixel-ratio: 2/1) and (min-device-width: 1025px),
+only screen and (        min-device-pixel-ratio: 2) and (min-device-width: 1025px),
+only screen and (           min-resolution: 192dpi) and (min-device-width: 1025px),
+only screen and (            min-resolution: 2dppx) and (min-device-width: 1025px) {
+
+    .past-clients-section {
+        height: auto;
+    }
+}

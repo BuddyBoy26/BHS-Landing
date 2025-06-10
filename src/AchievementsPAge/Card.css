@@ -1,0 +1,96 @@
+/* Main Card Grid Layout */
+.log-grid-container, .podcasts-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Auto-adjust layout */
+  gap: 30px;
+  align-items: stretch; /* Ensures all cards in a row match the tallest */
+  width: 100%;
+  padding: 10px;
+}
+
+/* Card Styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centers all content */
+  text-align: center; /* Centers text */
+  justify-content: flex-start;
+  height: 100%; /* Makes all cards the same height */
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  transition: box-shadow 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Improved easing */
+  will-change: box-shadow; /* Performance hint */
+}
+
+
+/* Hover Effect: Adds Shadow to Card */
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Header */
+.card-header {
+  margin-bottom: 20px; /* Adds margin to the bottom of the card header */
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Card Image */
+.card-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Year (Placed between Title and Image) */
+.card-year {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #666;
+  margin-top: 0px; /* Adds margin above */
+  margin-bottom: 0px; /* Adds margin below */
+}
+
+/* Card Description */
+.card-description {
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+  padding: 0 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* ✅ Medium screens (900px - 769px): Forces exactly 2 cards per row */
+@media (max-width: 900px) {
+  .log-grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ✅ Small screens (768px & below): Single column layout */
+@media (max-width: 768px) {
+  .log-grid-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 5%;
+  }
+}
+
+/* ✅ Extra small screens (480px & below): Optimized full-width layout */
+@media (max-width: 480px) {
+  .log-grid-container {
+    padding: 0 5%;
+  }
+  .card {
+    width: 100%;
+  }
+}
