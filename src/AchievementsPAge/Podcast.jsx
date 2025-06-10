@@ -20,7 +20,7 @@ const Podcast = ({ url, name }) => {
             <div className="aspect-w-16 aspect-h-9">
                 <iframe 
                     className="w-full h-64 rounded-lg" 
-                    src={getYouTubeEmbedUrl(url)} 
+                    src={`https://youtube.com/embed/3DiL3S3n4JE?si=BvVsoSE8ym8Wk6rG`} 
                     frameBorder="0" 
                     allowFullScreen
                     title={name}

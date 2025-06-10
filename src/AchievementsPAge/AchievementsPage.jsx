@@ -43,8 +43,7 @@ const certificates = [
 ];
 
 const podcasts = [
-  { title: "How to do stuff", url: "https://youtu.be/cBsHFf5VGOw?feature=shared" },
-  { title: "Leadership Talks", url: "https://youtu.be/cBsHFf5VGOw?feature=shared" }
+  { title: "Deepak with the No Nonsense Podcast UAE", url: "https://youtu.be/cBsHFf5VGOw?feature=shared" },
 ];
 
 const instagrams = [
@@ -107,14 +106,14 @@ export default function AchievementsPage() {
           </div>
         </section>
 
-        <section className="instagram-section">
+        {/* <section className="instagram-section">
           <h3 className="sub-heading1">Instagram</h3>
           <div className="instagram-container">
             {instagrams.map((instagram, idx) => (
               <Instagram key={idx} url={instagram.url} name={instagram.title} />
             ))}
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   );
